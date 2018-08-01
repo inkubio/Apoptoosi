@@ -13,8 +13,14 @@ namespace apoptoosi.Controllers
     public class RegisterirationDataController : Controller
     {
 
+        private RegisterirationContext _registerationDBConnection = new RegisterirationContext();
+
         [HttpGet("[action]")]
         public IEnumerable<Registeriration> Registerirations(){
+
+            var registerations = _registerationDBConnection.Registerirations.ToList();
+            
+            return registerations;
 
             var registree = new Registeriration{
                 name = "Hello", 
@@ -27,7 +33,7 @@ namespace apoptoosi.Controllers
 
         }
         [HttpPost]
-        public IActionResult CreateRegisteration(){
+        public NoContentResult CreateRegisteration(){
 
             return NoContent();
 
