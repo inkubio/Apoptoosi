@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 using apoptoosi.models;
 
@@ -16,9 +17,9 @@ namespace apoptoosi.Controllers
         private RegisterirationContext _registerationDBConnection = new RegisterirationContext();
 
         [HttpGet("[action]")]
-        public IEnumerable<Registeriration> Registerirations(){
+        public async Task<IEnumerable<Registeriration>> Registerirations(){
 
-            var registerations = _registerationDBConnection.Registerirations.ToList();
+            var registerations = await _registerationDBConnection.Registerirations.ToListAsync();
             
             return registerations;
 
@@ -33,7 +34,12 @@ namespace apoptoosi.Controllers
 
         }
         [HttpPost]
-        public NoContentResult CreateRegisteration(){
+        public async Task<IActionResult> CreateRegisteration(Registeriration insertion){
+
+
+
+            var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
+            var ret = await _registerationDBConnection.Registerirations.SaveChanges();
 
             return NoContent();
 
