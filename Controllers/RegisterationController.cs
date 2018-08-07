@@ -15,6 +15,8 @@ namespace apoptoosi.Controllers
     {
 
         private RegisterirationContext _registerationDBConnection = new RegisterirationContext();
+ 
+        private static uint regID {get; set;} = 0;
 
         [HttpGet("[action]")]
         public async Task<IEnumerable<Registeriration>> Registerirations(){
@@ -23,25 +25,19 @@ namespace apoptoosi.Controllers
             
             return registerations;
 
-            var registree = new Registeriration{
-                name = "Hello", 
-                group = "World", 
-                alcohol = false, 
-                text = "Apoptoosi"
-            };
-
-            return new Registeriration[] { registree };
-
         }
         [HttpPost]
-        public async Task<IActionResult> CreateRegisteration(Registeriration insertion){
+        public async Task<IActionResult> CreateRegisteration([FromBody] Registeriration insertion){
 
 
-
-            var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
-            var ret = await _registerationDBConnection.Registerirations.SaveChanges();
-
-            return NoContent();
+            try{
+                var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
+                var ret = await _registerationDBConnection.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception e) {
+                return BadRequest();
+            }
 
         }
     }

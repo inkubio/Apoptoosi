@@ -27,3 +27,8 @@ Esimerkiksi
     Now listening on: https://localhost:5001
     Now listening on: http://localhost:5000
     ...
+
+API kutsuja voi kokeilla esimerkiksi tekemällä kutsun
+
+    http://localhost:5000/api/RegisterirationData/Registerirations
+
