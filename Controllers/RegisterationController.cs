@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 using apoptoosi.models;
+using System.IO;
 
 namespace apoptoosi.Controllers
 {
@@ -27,18 +28,19 @@ namespace apoptoosi.Controllers
 
         }
         [HttpPost]
+        [Route("CreateRegisteration")]
         public async Task<IActionResult> CreateRegisteration([FromBody] Registeriration insertion){
 
-
-            try{
+            try
+            {
                 var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
                 var ret = await _registerationDBConnection.SaveChangesAsync();
                 return Ok();
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return BadRequest();
             }
-
         }
     }
 }

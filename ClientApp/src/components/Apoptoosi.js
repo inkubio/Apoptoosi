@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ApoptoosiForm } from './ApoptoosiForm';
 
 export class Apoptoosi extends Component {
   displayName = Apoptoosi.name
@@ -6,9 +7,10 @@ export class Apoptoosi extends Component {
   constructor(props) {
     super(props);
     this.state = { registerations: [], loading: true };
-
+  }
+  componentDidMount(){
     fetch('api/RegisterirationData/Registerirations')
-      .then(response => response.json())
+    .then(response => response.json())
       .then(data => {
         this.setState({ registerations: data, loading: false });
       });
@@ -48,8 +50,9 @@ export class Apoptoosi extends Component {
       <div>
         <h1>Apoptoosi</h1>
         <p>This component demonstrates fetching data from the server.</p>
-        {contents}
-      </div>
+            {contents}
+            <ApoptoosiForm />
+     </div>
     );
   }
 }
