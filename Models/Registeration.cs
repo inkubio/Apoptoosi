@@ -5,13 +5,10 @@ namespace apoptoosi.models {
     public class Registeriration
     {
 
-        
-
+        [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         [Key]
-        public int RegisterationID { get; set; }
-
+        public int registerationID { get; set; }
         public string name { get; set; }
-
         public string seatingGroup { get; set; }
         public bool alcohol { get; set; }
         public string text { get; set; }
@@ -19,8 +16,9 @@ namespace apoptoosi.models {
     }
     public class CookieQueTicket
     {
+        [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         [Key]
-        public int CookieID { get; set; }
+        public int cookieID { get; set; }
 
         public uint position {get; set;}
 
@@ -39,12 +37,6 @@ namespace apoptoosi.models {
         {
             optionsBuilder.UseSqlite("Data Source=apoptoosi.db");
         }
-        // protected override void OnModelCreating(ModelBuilder modelBuilder)
-        // {
-        //     modelBuilder.Entity<>()
-        //         .Property(p => p.DisplayName)
-        //         .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
-        // }
 
     }
 }
