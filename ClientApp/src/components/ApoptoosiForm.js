@@ -41,14 +41,24 @@ export class ApoptoosiForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit.bind(this)}>
+                
                 <label>
                     Apoptoosi form
-            </label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange}  />
-                <input type="text" name="seatingGroup" value={this.state.seatingGroup} onChange={this.handleChange}  />
-                <input type="checkbox" name="alcohol" value={this.state.alcohol} onChange={this.handleChange}  />
-                <input type="text" name="text" value={this.state.helloings} onChange={this.handleChange} />
-                <input type="submit" value="Submit" />
+                </label>
+                <div class="form-group">
+                    <input  class="form-control" type="text" name="name" value={this.state.name} onChange={this.handleChange}  />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="seatingGroup" value={this.state.seatingGroup} onChange={this.handleChange}  />
+                </div>
+                <div class="form-group">
+                    <input class="form-check-input" type="checkbox" name="alcohol" value={this.state.alcohol} onChange={this.handleChange}  />
+                </div>
+                <div class="form-group">
+                    <input class="form-control"  type="text" name="text" value={this.state.helloings} onChange={this.handleChange} />
+                </div>
+                <button class="btn btn-primary" type="submit" >Submit</button>
+
             </form>
         );
     }

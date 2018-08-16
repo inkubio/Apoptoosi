@@ -31,16 +31,21 @@ namespace apoptoosi.Controllers
         [Route("CreateRegisteration")]
         public async Task<IActionResult> CreateRegisteration([FromBody] Registeriration insertion){
 
-            try
-            {
-                var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
-                var ret = await _registerationDBConnection.SaveChangesAsync();
-                return Ok();
+
+            if (insertion.validate()) {
+                
+                try
+                {
+                    var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
+                    var ret = await _registerationDBConnection.SaveChangesAsync();
+                    return Ok();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest();
+                }
             }
-            catch (Exception e)
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
     }
 }

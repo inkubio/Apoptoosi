@@ -13,6 +13,20 @@ namespace apoptoosi.models {
         public bool alcohol { get; set; }
         public string text { get; set; }
 
+        public bool validate()
+        {
+            if (name.Length > 125 || string.IsNullOrEmpty(name)) {
+                return false;
+            }
+            else if (seatingGroup.Length > 125 ||string.IsNullOrEmpty(seatingGroup)) {
+                return false;
+            }
+            else if (text.Length > 255) {
+                return false;
+            }
+            return true;
+        }
+
     }
     public class CookieQueTicket
     {
