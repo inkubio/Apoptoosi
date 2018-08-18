@@ -9,12 +9,14 @@ export class Apoptoosi extends Component {
     this.state = { registerations: [], loading: true };
   }
   componentDidMount(){
-    fetch('api/RegisterirationData/Registerirations')
-    .then(response => response.json())
+
+      fetch('api/RegisterirationData/Registerirations')
+      .then(response => response.json())
       .then(data => {
         this.setState({ registerations: data, loading: false });
-      });
-  }
+      })
+      .catch(error => this.setState({loading: false}))
+    }
 
   static renderRegisterationsTable(registerations) {
     return (

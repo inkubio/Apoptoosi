@@ -9,7 +9,7 @@ export class ApoptoosiForm extends Component {
             alcohol: '',
             text: '',
         };
-
+    
         this.handleChange = this.handleChange.bind(this);
         this.createRegistration = this.handleSubmit.bind(this);
     }
@@ -22,7 +22,7 @@ export class ApoptoosiForm extends Component {
     }
 
     handleSubmit(event) {
-
+        
         fetch('api/RegisterirationData/Createregisteration', {
             headers: {
                 'Connection': 'keep-alive',
@@ -36,6 +36,8 @@ export class ApoptoosiForm extends Component {
 
         });
         event.preventDefault();
+        window.location.reload();
+        
     }
 
     render() {
@@ -45,19 +47,19 @@ export class ApoptoosiForm extends Component {
                 <label>
                     Apoptoosi form
                 </label>
-                <div class="form-group">
-                    <input  class="form-control" type="text" name="name" value={this.state.name} onChange={this.handleChange}  />
+                <div className="form-group">
+                    <input  className="form-control" type="text" name="name" value={this.state.name} onChange={this.handleChange}  />
                 </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" name="seatingGroup" value={this.state.seatingGroup} onChange={this.handleChange}  />
+                <div className="form-group">
+                    <input className="form-control" type="text" name="seatingGroup" value={this.state.seatingGroup} onChange={this.handleChange}  />
                 </div>
-                <div class="form-group">
-                    <input class="form-check-input" type="checkbox" name="alcohol" value={this.state.alcohol} onChange={this.handleChange}  />
+                <div className="form-group">
+                    <input className="form-check-input" type="checkbox" name="alcohol" value={this.state.alcohol} onChange={this.handleChange}  />
                 </div>
-                <div class="form-group">
-                    <input class="form-control"  type="text" name="text" value={this.state.helloings} onChange={this.handleChange} />
+                <div className="form-group">
+                    <input className="form-control"  type="text" name="text" value={this.state.helloings} onChange={this.handleChange} />
                 </div>
-                <button class="btn btn-primary" type="submit" >Submit</button>
+                <button className="btn btn-primary" type="submit" >Submit</button>
 
             </form>
         );
