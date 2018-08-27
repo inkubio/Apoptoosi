@@ -12,24 +12,22 @@ using System.IO;
 namespace apoptoosi.Controllers
 {
     [Route("api/[controller]")]
-    public class RegisterirationDataController : Controller
+    public class RegistrationDataController : Controller
     {
 
-        private RegisterirationContext _registerationDBConnection = new RegisterirationContext();
- 
-        private static uint regID {get; set;} = 0;
+        private RegistrationContext _registerationDBConnection = new RegistrationContext();
 
         [HttpGet("[action]")]
-        public async Task<IEnumerable<Registeriration>> Registerirations(){
+        public async Task<IEnumerable< Registration>> Registerations(){
 
-            var registerations = await _registerationDBConnection.Registerirations.ToListAsync();
+            var registrations = await _registerationDBConnection.Registerirations.ToListAsync();
             
-            return registerations;
+            return registrations;
 
         }
         [HttpPost]
-        [Route("CreateRegisteration")]
-        public async Task<IActionResult> CreateRegisteration([FromBody] Registeriration insertion){
+        [Route("[action]")]
+        public async Task<IActionResult> CreateRegisteration([FromBody]  Registration insertion){
 
 
             if (insertion.validate()) {
