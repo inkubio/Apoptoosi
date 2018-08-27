@@ -30,5 +30,5 @@ Esimerkiksi
 
 API kutsuja voi kokeilla esimerkiksi tekemällä kutsun
 
-    http://localhost:5000/api/RegisterirationData/Registerirations
+    http://localhost:5000/api/registrationData/registrations
 

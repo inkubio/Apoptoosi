@@ -20,7 +20,7 @@ namespace apoptoosi.models {
 
         private RegexUtilities regexUtils = new RegexUtilities();
 
-        public bool validate()
+        public bool Validate()
         {
             if (firstName.Length > 125 || string.IsNullOrEmpty(firstName)) {
                 return false;
@@ -56,7 +56,7 @@ namespace apoptoosi.models {
 
     public class RegistrationContext : DbContext
     {
-        public DbSet<Registration> Registerirations  {get; set; }
+        public DbSet<Registration> Registrations  {get; set; }
 
         public DbSet<CookieQueTicket> CookieQueTicket {get; set; }
 

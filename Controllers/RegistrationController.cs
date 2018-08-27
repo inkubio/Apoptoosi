@@ -15,27 +15,27 @@ namespace apoptoosi.Controllers
     public class RegistrationDataController : Controller
     {
 
-        private RegistrationContext _registerationDBConnection = new RegistrationContext();
+        private RegistrationContext _registrationDBConnection = new RegistrationContext();
 
         [HttpGet("[action]")]
-        public async Task<IEnumerable< Registration>> Registerations(){
+        public async Task<IEnumerable< Registration>> Registrations(){
 
-            var registrations = await _registerationDBConnection.Registerirations.ToListAsync();
+            var registrations = await _registrationDBConnection.Registrations.ToListAsync();
             
             return registrations;
 
         }
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> CreateRegisteration([FromBody]  Registration insertion){
+        public async Task<IActionResult> CreateRegistration([FromBody]  Registration insertion){
 
 
-            if (insertion.validate()) {
+            if (insertion.Validate()) {
                 
                 try
                 {
-                    var result = await _registerationDBConnection.Registerirations.AddAsync(insertion);
-                    var ret = await _registerationDBConnection.SaveChangesAsync();
+                    var result = await _registrationDBConnection.Registrations.AddAsync(insertion);
+                    var ret = await _registrationDBConnection.SaveChangesAsync();
                     return Ok();
                 }
                 catch (Exception e)

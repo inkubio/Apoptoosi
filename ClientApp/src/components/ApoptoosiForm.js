@@ -23,7 +23,7 @@ export class ApoptoosiForm extends Component {
 
     handleSubmit(event) {
         
-        fetch('api/RegisterirationData/Createregisteration', {
+        fetch('api/registrationData/Createregistration', {
             headers: {
                 'Connection': 'keep-alive',
                 'Content-Type': 'application/json'

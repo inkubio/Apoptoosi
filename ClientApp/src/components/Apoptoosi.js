@@ -6,19 +6,19 @@ export class Apoptoosi extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { registerations: [], loading: true };
+    this.state = { registrations: [], loading: true };
   } 
   componentDidMount(){
 
-      fetch('api/RegisterirationData/Registerirations')
+      fetch('api/registrationData/registrations')
       .then(response => response.json())
       .then(data => {
-        this.setState({ registerations: data, loading: false });
+        this.setState({ registrations: data, loading: false });
       })
       .catch(error => this.setState({loading: false}))
     }
 
-  static renderRegisterationsTable(registerations) {
+  static renderregistrationsTable(registrations) {
     return (
       <table className='table'>
         <thead>
@@ -30,12 +30,12 @@ export class Apoptoosi extends Component {
           </tr>
         </thead>
         <tbody>
-          {registerations.map(registeration =>
+          {registrations.map(registration =>
             <tr key='ebin123'>
-              <td>{registeration.name}</td>
-              <td>{registeration.seatingGroup}</td>
-              <td>{registeration.alcohol}</td>
-              <td>{registeration.text}</td>
+              <td>{registration.name}</td>
+              <td>{registration.seatingGroup}</td>
+              <td>{registration.alcohol}</td>
+              <td>{registration.text}</td>
             </tr>
           )}
         </tbody>
@@ -46,7 +46,7 @@ export class Apoptoosi extends Component {
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
-      : Apoptoosi.renderRegisterationsTable(this.state.registerations);
+      : Apoptoosi.renderregistrationsTable(this.state.registrations);
 
     return (
       <div>
