@@ -28,10 +28,7 @@ namespace apoptoosi
             {
                 configuration.RootPath = "ClientApp/build";
             });
-            services.AddCors(
-                builder => builder.WithOrigins("http://localhost:8080/")
-                                            .AllowAnyHeader()
-            );
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +54,10 @@ namespace apoptoosi
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+
+            app.UseCors(
+                builder => builder.WithOrigins("http://localhost:8080").AllowAnyMethod()                                          // .AllowAnyHeader()
+            );
 
             app.UseSpa(spa =>
             {

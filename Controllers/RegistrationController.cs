@@ -13,7 +13,6 @@ using System.IO;
 namespace apoptoosi.Controllers
 {
     [Route("api/[controller]")]
-    [EnadleCors(origins: "")]
     public class RegistrationDataController : Controller
     {
 
