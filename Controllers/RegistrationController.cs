@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 using apoptoosi.models;
 using System.IO;
 
 namespace apoptoosi.Controllers
 {
     [Route("api/[controller]")]
+    [EnadleCors(origins: "")]
     public class RegistrationDataController : Controller
     {
 
