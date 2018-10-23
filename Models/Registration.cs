@@ -13,7 +13,7 @@ namespace apoptoosi.models {
         public int RegistrationID { get; set; }
         public string firstName { get; set; }
         public string lastName {get; set;}
-        public string email {get;set;}
+        public string email {get; set;}
         public string seatingGroup { get; set; }
         public bool alcohol { get; set; }
         public string text { get; set; }
@@ -31,7 +31,7 @@ namespace apoptoosi.models {
             else if (!regexUtils.IsValidEmail(email)){
                 return false;
             }
-            else if (seatingGroup.Length > 125 ||string.IsNullOrEmpty(seatingGroup)) {
+            else if (seatingGroup.Length > 125 || string.IsNullOrEmpty(seatingGroup)) {
                 return false;
             }
             else if (text.Length > 255) {

@@ -5,11 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Cors;
+
 
 namespace apoptoosi
 {
     public class Startup
     {
+        private readonly string _apoptoosiUrl = "http://localhost:8080";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,6 +31,14 @@ namespace apoptoosi
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddCors(
+                    options =>
+                    {
+                        options.AddPolicy("AllowApoptoosiSite",
+                            builder => builder.WithOrigins(_apoptoosiUrl));
+                    }
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +64,10 @@ namespace apoptoosi
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+
+            //app.UseCors(
+            //    builder => builder.AllowAnyOrigin()
+            //);
 
             //app.UseSpa(spa =>
             //{

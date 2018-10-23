@@ -8,16 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 using apoptoosi.models;
 using System.IO;
+using Microsoft.AspNetCore.Cors;
 
 namespace apoptoosi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowApoptoosiSite")]
     public class RegistrationDataController : Controller
     {
 
         private RegistrationContext _registrationDBConnection = new RegistrationContext();
 
         [HttpGet("[action]")]
+        [EnableCors("AllowApoptoosiSite")]
+
         public async Task<IEnumerable< Registration>> Registrations(){
 
             var registrations = await _registrationDBConnection.Registrations.ToListAsync();
@@ -27,6 +31,7 @@ namespace apoptoosi.Controllers
         }
         [HttpPost]
         [Route("[action]")]
+        [EnableCors("AllowApoptoosiSite")]
         public async Task<IActionResult> CreateRegistration([FromBody]  Registration insertion){
 
 
