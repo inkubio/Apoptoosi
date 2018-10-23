@@ -5,7 +5,7 @@ Seuraa linkin ohjeita.
 
     https://www.microsoft.com/net/learn/get-started-with-dotnet-tutorial#linuxubuntu
 
-Asennetaan EnityFramework slqitelle
+Asennetaan EntityFramework slqitelle
 
     >>dotnet add package Microsoft.EntityFrameworkCore.Sqlite
     >>dotnet add package Microsoft.EntityFrameworkCore.Design
@@ -19,7 +19,7 @@ Komentoriviltä
 
     ../Apoptoosi/apoptoosi>>dotnet run
 
-Voilá! Nettisivun pitäisi löytyä toimintakuntoisena komentorivillä lukevassa osoitteessa.
+Voilá! API Serverin pitäis löytyä komentorivin urlista.
 
 Esimerkiksi
 
