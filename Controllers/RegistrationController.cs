@@ -22,7 +22,7 @@ namespace apoptoosi.Controllers
         [HttpGet("[action]")]
         [EnableCors("AllowApoptoosiSite")]
 
-        public async Task<IEnumerable< Registration>> Registrations(){
+        public async Task<IEnumerable<Registration>> Registrations(){
 
             var registrations = await _registrationDBConnection.Registrations.ToListAsync();
             
